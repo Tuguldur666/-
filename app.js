@@ -5,9 +5,18 @@ var points = [ 0 , 0];
 // Player points in turns
 var turnPoint = 0 ;
 // Dice point random 1-6
-var dice = Math.floor( Math.random()* 6)+ 1;
-window.document.querySelector('#score-0').textContent = 0 ;
-window.document.querySelector('#score-1').textContent = 0 ;
-window.document.querySelector('#current-0').textContent = 0 ;
-window.document.querySelector('#current-1').textContent = 0 ;
-window.document.querySelector('.dice').style.display = "none";
+var diceNumber = Math.floor( Math.random()* 6)+ 1;
+window.document.getElementById('score-0').textContent = '0' ;
+window.document.getElementById('score-1').textContent = '0' ;
+window.document.getElementById('current-0').textContent = '0' ;
+window.document.getElementById('current-1').textContent = '0';
+window.document.querySelector(".dice").style.display = "none";
+document.querySelector('.btn-roll').addEventListener("click" , function()
+{
+    var diceNumber = Math.floor( Math.random()* 6)+ 1;
+    window.document.querySelector(".dice").style.display = "block";
+window.document.querySelector(".dice").src = "dice-" + diceNumber + ".png";
+}
+);
+
+
