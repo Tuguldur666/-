@@ -72,7 +72,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     points[activePlayer];
 
 
-  if (points[activePlayer] >= 10) {
+  if (points[activePlayer] >= 100) {
     isGameOver = true ;
     document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
     document
