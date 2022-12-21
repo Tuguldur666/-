@@ -72,7 +72,7 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
     points[activePlayer];
 
 
-  if (points[activePlayer] >= 100) {
+  if (points[activePlayer] >= 30 ) {
     isGameOver = true ;
     document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
     document
@@ -103,5 +103,4 @@ function switchToNextPlayer() {
   diceDom.style.display = "none";
 }
 
-// New Game 
 document.querySelector(".btn-new").addEventListener("click", newGame);
