@@ -1,6 +1,4 @@
-/**********************************************
-*** ЕРӨНХИЙ
-**********************************************/
+
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +13,7 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
+    background-image: linear-gradient(rgba(47, 16, 16, 0.4), rgba(59, 20, 20, 0.4)), url(index..jpg);
     background-size: cover;
     background-position: center;
     font-family: Lato;
@@ -25,7 +23,7 @@ body {
     color: #555;
 }
 
-.wrapper {
+.wrap {
     width: 1000px;
     position: absolute;
     top: 50%;
@@ -36,19 +34,13 @@ body {
     overflow: hidden;
 }
 
-.player-0-panel,
-.player-1-panel {
+.player-0,
+.player-1 {
     width: 50%;
     float: left;
     height: 600px;
     padding: 100px;
 }
-
-
-
-/**********************************************
-*** ТОГЛОГЧИД
-**********************************************/
 
 .player-name {
     font-size: 40px;

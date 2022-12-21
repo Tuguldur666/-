@@ -1,22 +1,16 @@
-var isGameOver;
-var activePlayer;
-
-var points;
-
-var turnPoints;
-var diceDom = document.querySelector(".dice");
+let GameOver;
+let activePlayer;
+let points;
+let turnPoints;
+let diceDom = document.querySelector(".dice");
 
 
 newGame();
-
 function newGame() {
 
-  isGameOver = false ;
-
+  GameOver = false ;
   activePlayer = 0;
-
   points = [0, 0];
-
   turnPoints = 0;
 
 
@@ -24,27 +18,22 @@ function newGame() {
   document.getElementById("score-1").textContent = "0";
   document.getElementById("current-0").textContent = "0";
   document.getElementById("current-1").textContent = "0";
-
-  
-  document.getElementById("name-0").textContent = "Player 1";
-  document.getElementById("name-1").textContent = "Player 2";
-
-  document.querySelector(".player-0-panel").classList.remove("winner");
-  document.querySelector(".player-1-panel").classList.remove("winner");
-
-  document.querySelector(".player-0-panel").classList.remove("active");
-  document.querySelector(".player-1-panel").classList.remove("active");
-
-  document.querySelector(".player-0-panel").classList.add("active");
-
+  document.getElementById("name-0").textContent = "Тоглогч 1";
+  document.getElementById("name-1").textContent = "Тоглогч 2";
+  document.querySelector(".player-0").classList.remove("winner");
+  document.querySelector(".player-1").classList.remove("winner");
+  document.querySelector(".player-0").classList.remove("active");
+  document.querySelector(".player-1").classList.remove("active");
+  document.querySelector(".player-0").classList.add("active");
   diceDom.style.display = "none";
 }
 
 
-document.querySelector(".btn-roll").addEventListener("click", function() {
-  if(isGameOver !== true)
+document.querySelector(".btn-roll").addEventListener("click", function() 
+{
+  if(GameOver !== true)
   {
-    var diceNumber = Math.floor(Math.random() * 6) + 1;
+    let diceNumber = Math.floor(Math.random() * 6) + 1;
 
   diceDom.style.display = "block";
 
@@ -57,9 +46,12 @@ document.querySelector(".btn-roll").addEventListener("click", function() {
     document.getElementById("current-" + activePlayer).textContent = turnPoints;
   } else {
 
-    switchToNextPlayer();
+    switchPlayer();
   }
-  }else {alert(" Game  Over  Please click on NEW GAME");}
+  }else {
+            alert("Тоглоом дууссан !!!");
+            newGame(); 
+}
   
 });
 
@@ -73,31 +65,37 @@ document.querySelector(".btn-hold").addEventListener("click", function() {
 
 
   if (points[activePlayer] >= 30 ) {
-    isGameOver = true ;
-    document.getElementById("name-" + activePlayer).textContent = "WINNER!!!";
+    GameOver = true ;
+    document.getElementById("name-" + activePlayer).textContent = "Ялагч !!!";
     document
-      .querySelector(".player-" + activePlayer + "-panel")
+      .querySelector(".player-" + activePlayer )
       .classList.add("winner");
     document
-      .querySelector(".player-" + activePlayer + "-panel")
+      .querySelector(".player-" + activePlayer )
       .classList.remove("active");
   } else {
 
-    switchToNextPlayer();
+    switchPlayer();
   }
 });
 
 
-function switchToNextPlayer() {
+function switchPlayer() {
   turnPoints = 0;
   document.getElementById("current-" + activePlayer).textContent = 0;
 
   
-  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+ if(activePlayer === 0)
+ {
+    (activePlayer = 1);
+
+  }else{
+    (activePlayer = 0)
+  } 
 
   
-  document.querySelector(".player-0-panel").classList.toggle("active");
-  document.querySelector(".player-1-panel").classList.toggle("active");
+  document.querySelector(".player-0").classList.toggle("active");
+  document.querySelector(".player-1").classList.toggle("active");
 
   
   diceDom.style.display = "none";
